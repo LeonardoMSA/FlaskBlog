@@ -2,13 +2,15 @@
 
 {% block content %}
 
-  <form method="POST">
+  <div class="container" style="margin: 30px">
+    <form method="POST">
 
-    {{form.hidden_tag}}
-    {{form.email.label}}{{form.email}}<br><br>
-    {{form.password.label}}{{form.password}}<br><br>
-    {{form.submit()}}
+      {{form.hidden_tag()}}
+      {{form.email.label}}{{form.email}}<br><br>
+      {{form.password.label}}{{form.password}}<br><br>
+      {{form.submit()}}
 
-  </form>
+    </form>
+  </div>
 
 {% endblock %}
