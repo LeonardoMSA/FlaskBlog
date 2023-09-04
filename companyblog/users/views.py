@@ -27,7 +27,7 @@ def register():
 
     return render_template('register.html', form=form)
 
-@users.route('login', methods=['GET', 'POST'])
+@users.route('/login', methods=['GET', 'POST'])
 def login():
 
     form = LoginForm()
@@ -45,7 +45,7 @@ def login():
 
             return redirect(next)
 
-    return render_template('login.html')
+    return render_template('login.html', form=form)
 
 @users.route('/logout')
 def logout():
@@ -71,7 +71,7 @@ def account():
         flash('Account updated!')
         return redirect(url_for('users.account'))
 
-    elif request.method == 'Get':
+    elif request.method == 'GET':
 
         form.username.data = current_user.username
         form.email.data = current_user.email

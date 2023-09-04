@@ -6,6 +6,8 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = 'waltinho'
+
 #########################
 ####### DB SETUP ########
 #########################
@@ -32,3 +34,4 @@ from companyblog.users.views import users
 
 app.register_blueprint(core)
 app.register_blueprint(error_pages)
+app.register_blueprint(users)
