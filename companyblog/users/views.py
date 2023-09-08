@@ -69,7 +69,7 @@ def account():
         db.session.commit()
 
         flash('Account updated!')
-        return redirect(url_for('users.account'))
+        return redirect(url_for('core.info'))
 
     elif request.method == 'GET':
 

@@ -3,16 +3,20 @@
 {% block content %}
 
   <h1>Welcome to the page for {{current_user.username}}</h1><br><br>
-  <img src="{{url_for('static', filename='profile_pics/'+current_user/profile_pic)}}">
+  <img src="{{url_for('static', filename='profile_pics/'+current_user.profile_pic)}}"><br><br>
 
-  {{form.hidden_tag()}}
+  <form method="POST", action="" enctype="multipart/form-data">
 
-  {{form.username.label}}{{form.username}}<br><br>
+    {{form.hidden_tag()}}
 
-  {{form.email.label}}{{form.email}}<br><br>
+    {{form.username.label}}<br>{{form.username}}<br><br>
 
-  {{form.picture.label}}{{form.picture}}<br><br>
+    {{form.email.label}}<br>{{form.email}}<br><br>
 
-  {{form.submit}}
+    {{form.picture.label}}<br>{{form.picture}}<br><br>
+
+    {{form.submit()}}
+
+  </form>
 
 {% endblock %}
