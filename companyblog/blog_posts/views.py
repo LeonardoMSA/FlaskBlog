@@ -11,7 +11,7 @@ blog_posts = Blueprint('blog_posts', __name__)
 @login_required
 def create_post():
 
-    form = BlogPostForm
+    form = BlogPostForm()
     if form.validate_on_submit():
 
         blog_post = BlogPost(title = form.title.data,
@@ -47,7 +47,7 @@ def update(blog_post_id):
     if form.validate_on_submit():
 
         blog_post.title = form.title.data
-        blog_post.text = form.text.data,
+        blog_post.text = form.text.data
 
         db.session.commit()
         flash('Blog Post Updated')
