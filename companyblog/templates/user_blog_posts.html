@@ -1,26 +1,71 @@
+<head>
+
+    <style>
+
+    .textContainer{
+        text-align: center;
+        font-family: SansSerif;
+    }
+
+    .cardContainer{
+        margin-top: 1rem;
+        justify-content: space-evenly;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card{
+        margin: 1rem;
+        width: 18rem;
+        height: 15rem;
+    }
+
+    .pages{
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+
+    .page-title{
+        text-align: center;
+        margin: 1rem 0 1.5rem 0 ;
+        font-family: SansSerif;
+    }
+
+
+    </style>
+
+</head>
+
+
 {% extends "base.html" %}
 
 {% block content %}
 
-    <div style="align-content: center">
+    <div class="textContainer">
 
-      <h1>Welcome to the page for {{user.username}}</h1>
+      <h1 class="page-title">Welcome to the page for {{user.username}}</h1>
       <img src="{{url_for('static', filename='profile_pics/'+user.profile_pic)}}">
+    </div>
 
+
+    <div class="cardContainer">
     {% for post in blog_posts.items %}
 
-    <h2><a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">{{post.title}}</a> </h2>
-    Written by: <a href="{{url_for('users.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
-    <p class="text-muted">Published on: {{post.date.strftime("%Y-%m-%d")}}</p>
-    <br>
-    <p>{{post.text}}</p>
-    <br>
+    <div class="card">
+        <div class="card-body">
+          <h2> <a class="card-title" href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">{{post.title}}</a> </h2>
+          <a href="{{url_for('users.user_posts', username=post.author.username)}}">Written by: {{post.author.username}}</a>
+          <p>Published on: {{post.date.strftime('%Y - %m - %d')}}</p>
+          <a class="btn btn-primary" href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">Read Post</a>
+        </div>
+    </div>
 
     {% endfor %}
 
     </div>
 
-    <nav aria-label="...">
+    <nav aria-label="..." class="pages">
         <ul class="pagination">
 
             {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=2, left_current=1, right_current=2) %}
