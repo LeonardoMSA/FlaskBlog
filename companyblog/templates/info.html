@@ -1,11 +1,61 @@
+<head>
+
+    <style>
+
+      .infoContainer{
+        font-family: SansSerif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .infoTitle{
+        text-align: center;
+        margin: 2rem;
+      }
+
+      .textContainer{
+        margin: 0 8rem 0 8rem;
+        padding: 2rem 2rem 2rem 2rem;
+        background-color: lavender;
+        border-radius: 2rem;
+        font-size: 22px;
+      }
+
+    </style>
+
+</head>
+
 {% extends "base.html" %}
 
 {% block content %}
 
-  <div class="jumbotron">
-    <h1>Informações:</h1>
+  <div class="infoContainer">
+    <h1 class="infoTitle">About This Project:</h1>
 
-    <p>lorem ipsum</p>
+    <div class="textContainer">
+    <p>Welcome to our blog website! This project was crafted using Flask, HTML, CSS, and Bootstrap to provide you with a seamless and engaging blogging experience.</p>
+
+    <p>Here's a quick overview of what you can do on our platform:</p>
+
+    <ul>
+
+      <li>User Registration and Login</li>
+      <p>You have the freedom to register an account, making it easy to access all the features our blog offers. Already have an account? Simply log in and pick up where you left off.</p>
+
+      <li>Create, Edit, and Delete Posts</li>
+      <p>Share your thoughts, stories, and insights by creating your own blog posts. You can also edit or remove your posts whenever you like, giving you complete control over your content.</p>
+
+      <li>Explore Other User's Posts</li>
+      <p>Discover a diverse range of content created by fellow users. Explore their perspectives and engage in discussions through the comments section.</p>
+
+      <li>Customize Your Profile</li>
+      Personalize your profile with a unique username and even change your profile picture to truly make it your own.
+
+    </ul>
+
+    <p>This project was developed as part of the "Python and Flask Bootcamp: Create Websites Using Flask!" course on Udemy, where we honed our skills to bring you this platform. We hope you enjoy using it as much as we enjoyed creating it.</p>
+    </div>
   </div>
 
 
